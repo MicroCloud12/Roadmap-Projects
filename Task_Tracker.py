@@ -31,9 +31,7 @@ def update_tasks(tasks, id_a_actualizar, nueva_descripcion):
             task['description'] = nueva_descripcion
             task['updatedAt'] = datetime.now(UTC).isoformat()
             return True
-            break
-        else:
-            return False
+    return False
 
 if __name__ == "__main__":
     tasks = load_task()
