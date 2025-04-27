@@ -27,7 +27,7 @@ def save_tasks(task):
 
 def update_tasks(tasks, id_a_actualizar, nueva_descripcion):
     try:
-        print(tasks)
+        
     except IOError:
         print("Error: No se pudo escribir en el archivo de tareas.")
 
@@ -118,8 +118,6 @@ if __name__ == "__main__":
                 pass 
     
     elif command == "update":
-        #success = update_tasks(tasks, id_a_actualizar, nueva_descripcion)
-
         if len(sys.argv) < 4:
             print("Error: Faltan argumentos para actualizar.")
             print("Uso: python task_cli.py update <ID> \"<nueva descripción>\"")
@@ -131,6 +129,8 @@ if __name__ == "__main__":
 
         nueva_descripcion = sys.argv[3]
         print(f"La Informacion a Cambiar es la siguiente: ID = {id_a_actualizar} | Descripcion = {nueva_descripcion}")
+
+        success = update_tasks(tasks, id_a_actualizar, nueva_descripcion)
         pass
     else:
         print(f"Error: Comando desconocido '{command}'")
