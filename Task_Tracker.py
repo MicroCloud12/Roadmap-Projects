@@ -99,14 +99,9 @@ if __name__ == "__main__":
         for task in tasks:
             if filter_status is None or task['status'] == filter_status:
                 # Imprimir la tarea formateada
-                print(f"    ID: {task['id']}")
-                print(f"    Desc: {task['description']}")
-                print(f"    Status: {task['status']}")
-                print(f"    Created: {task.get('createdAt', 'N/A')}") # .get() es más seguro si la clave pudiera faltar
-                print(f"    Updated: {task.get('updatedAt', 'N/A')}")
+                print(f"ID: {task['id']} | Desc: {task['description']} | Status: {task['status']} | Created: {task.get('createdAt', 'N/A')} | Updated: {task.get('updatedAt', 'N/A')} |")
                 print("-" * 39) # Separador
                 found_tasks = True
-
             # Si se aplicó un filtro y no se encontró nada
             if filter_status is not None and not found_tasks:
                 print(f"No se encontraron tareas con el estado '{filter_status}'.")
