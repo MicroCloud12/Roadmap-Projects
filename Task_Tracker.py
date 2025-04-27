@@ -25,6 +25,12 @@ def save_tasks(task):
         print("Error: No se pudo escribir en el archivo de tareas.")
         # Podrías querer salir aquí también si guardar falla
 
+def update_tasks(tasks, id_a_actualizar, nueva_descripcion):
+    try:
+        print(tasks)
+    except IOError:
+        print("Error: No se pudo escribir en el archivo de tareas.")
+
 
 if __name__ == "__main__":
     tasks = load_task()
@@ -110,7 +116,22 @@ if __name__ == "__main__":
                 print("No hay tareas que coincidan con el filtro aplicado.")
                 print(f"ID: {task['id']} - Status: {task['status']} - Desc: {task['description']}")
                 pass 
+    
+    elif command == "update":
+        #success = update_tasks(tasks, id_a_actualizar, nueva_descripcion)
 
+        if len(sys.argv) < 4:
+            print("Error: Faltan argumentos para actualizar.")
+            print("Uso: python task_cli.py update <ID> \"<nueva descripción>\"")
+            sys.exit(1) # Salir indicando error
+        try:
+            id_a_actualizar = int(sys.argv[2])
+        except ValueError:
+            print(f"El valor {sys.argv[2]}, no es un valor valido")
+
+        nueva_descripcion = sys.argv[3]
+        print(f"La Informacion a Cambiar es la siguiente: ID = {id_a_actualizar} | Descripcion = {nueva_descripcion}")
+        pass
     else:
         print(f"Error: Comando desconocido '{command}'")
         sys.exit(1)
