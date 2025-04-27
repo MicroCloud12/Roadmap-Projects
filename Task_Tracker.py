@@ -26,11 +26,14 @@ def save_tasks(task):
         # Podrías querer salir aquí también si guardar falla
 
 def update_tasks(tasks, id_a_actualizar, nueva_descripcion):
-    try:
-        
-    except IOError:
-        print("Error: No se pudo escribir en el archivo de tareas.")
-
+    for task in tasks:
+        if task['id'] == id_a_actualizar:
+            task['description'] = nueva_descripcion
+            task['updatedAt'] = datetime.now(UTC).isoformat()
+            return True
+            break
+        else:
+            return False
 
 if __name__ == "__main__":
     tasks = load_task()
@@ -131,6 +134,7 @@ if __name__ == "__main__":
         print(f"La Informacion a Cambiar es la siguiente: ID = {id_a_actualizar} | Descripcion = {nueva_descripcion}")
 
         success = update_tasks(tasks, id_a_actualizar, nueva_descripcion)
+        print(f"Se encontro el registro asociado al ID {id_a_actualizar} y se modifico con la nueva descrpcion")
         pass
     else:
         print(f"Error: Comando desconocido '{command}'")
