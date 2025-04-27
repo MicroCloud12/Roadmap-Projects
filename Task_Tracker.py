@@ -33,6 +33,13 @@ def update_tasks(tasks, id_a_actualizar, nueva_descripcion):
             return True
     return False
 
+def update_task_status(tasks, nuevo_status):
+    for task in tasks:
+        if task['id'] == id_a_actualizar:
+            task['status'] = nuevo_status
+            return True
+    return False
+
 if __name__ == "__main__":
     tasks = load_task()
 
@@ -134,10 +141,31 @@ if __name__ == "__main__":
         success = update_tasks(tasks, id_a_actualizar, nueva_descripcion)
         print(f"Se encontro el registro asociado al ID {id_a_actualizar} y se modifico con la nueva descrpcion")
         pass
+
+    elif command == "mark-in-progress":
+        if len(sys.argv) < 3:
+            print("Error: Faltan argumentos para actualizar.")
+            print("Uso: python task_cli.py update <ID> \"<nueva descripción>\"")
+            sys.exit(1) # Salir indicando error
+        try:
+            id_a_actualizar = int(sys.argv[2])
+        except ValueError:
+            print(f"El valor {sys.argv[2]}, no es un valor valido")
+
+        nuevo_status = "in-progress"
+        success = update_task_status(tasks, id_a_actualizar, nuevo_status)
+
+        if success == True:
+            save_tasks(tasks)
+            print(f"Tarea {id_a_actualizar} marcada como '{nuevo_status}'.")
+        else:
+            print(f"Error: No se encontró tarea con ID {id_a_actualizar}.")
+
+    elif command == "mark-done":
+        if len(sys.argv) < 5:
+            print("Error: Faltan argumentos para actualizar.")
+            print("Uso: python task_cli.py update <ID> \"<nueva descripción>\"")
+            sys.exit(1) # Salir indicando error
     else:
         print(f"Error: Comando desconocido '{command}'")
         sys.exit(1)
-
-    # Nota: Las funciones save_tasks se llamarían DENTRO de las ramas
-    #       que modifican las tareas (add, update, delete, mark),
-    #       *después* de haber modificado la lista 'tasks' en memoria.
