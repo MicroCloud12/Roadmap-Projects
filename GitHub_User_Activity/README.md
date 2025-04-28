@@ -2,6 +2,8 @@
 
 En este proyecto, construirás una interfaz de línea de comandos (CLI) simple para obtener la actividad reciente de un usuario de GitHub y mostrarla en la terminal. Este proyecto te ayudará a practicar tus habilidades de programación, incluyendo el trabajo con APIs, el manejo de datos JSON y la construcción de una aplicación CLI sencilla.
 
+https://roadmap.sh/projects/github-user-activity
+
 ## Requisitos
 
 La aplicación debe ejecutarse desde la línea de comandos, aceptar el nombre de usuario de GitHub como argumento, obtener la actividad reciente del usuario utilizando la API de GitHub y mostrarla en la terminal. El usuario debe poder:
