@@ -21,7 +21,21 @@ status_code = response.getcode()
 if status_code == 200:
     print(f"Código de estado: {status_code}") # Para probar
     raw_data_bytes = response.read()
-    print("Datos crudos (bytes):", raw_data_bytes)
+    data_decode = raw_data_bytes.decode('utf-8')
+    activity_data = json.loads(data_decode)
+    
+    for data in activity_data:
+        #print(data)
+        if data['type'] == 'PushEvent':
+            nombre_repo = data['repo']['name']
+            lista_de_commits = data['payload']['commits']
+            numero_commits = len(lista_de_commits)
+            print(f"- Pushed {numero_commits} commits to {nombre_repo}")
+        elif data['type'] == 'IssuesEvent':
+            nombre_repo = data['repo']['name']
+            lista_de_commits = data['payload']['commits']
+            numero_commits = len(lista_de_commits)
+            print(f"- Pushed {numero_commits} commits to {nombre_repo}")
 else:
     print(f"No se conecto correctamente, código de error: {status_code}")
     sys.exit(1)
