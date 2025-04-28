@@ -1,62 +1,38 @@
-# Task Tracker CLI
+# GitHub Activity CLI
 
-Task Tracker es un proyecto para rastrear y gestionar tus tareas. Construirás una interfaz de línea de comandos (CLI) simple para llevar un registro de lo que necesitas hacer, lo que has hecho y en lo que estás trabajando actualmente. Este proyecto te ayudará a practicar tus habilidades de programación, incluyendo el trabajo con el sistema de archivos, el manejo de entradas de usuario y la construcción de una aplicación CLI sencilla.
+En este proyecto, construirás una interfaz de línea de comandos (CLI) simple para obtener la actividad reciente de un usuario de GitHub y mostrarla en la terminal. Este proyecto te ayudará a practicar tus habilidades de programación, incluyendo el trabajo con APIs, el manejo de datos JSON y la construcción de una aplicación CLI sencilla.
 
-* URL = https://roadmap.sh/projects/task-tracker
+* URL = https://roadmap.sh/projects/github-user-activity
 
 ## Requisitos
 
-La aplicación debe ejecutarse desde la línea de comandos, aceptar acciones y entradas del usuario como argumentos, y almacenar las tareas en un archivo JSON. El usuario debe poder:
+La aplicación debe ejecutarse desde la línea de comandos, aceptar el nombre de usuario de GitHub como argumento, obtener la actividad reciente del usuario utilizando la API de GitHub y mostrarla en la terminal. El usuario debe poder:
 
-* Añadir, actualizar y eliminar tareas.
-* Marcar una tarea como "en progreso" o "hecha".
-* Listar todas las tareas.
-* Listar todas las tareas que están hechas (`done`).
-* Listar todas las tareas que no están hechas (`todo`).
-* Listar todas las tareas que están en progreso (`in-progress`).
+* Proporcionar el nombre de usuario de GitHub como argumento al ejecutar la CLI. El formato esperado es:
+    ```bash
+    github-activity <username>
+    ```
 
-## Restricciones
+* Obtener la actividad reciente del usuario de GitHub especificado utilizando la API de GitHub. Puedes usar el siguiente endpoint para obtener la actividad del usuario:
+    ```
+    # Endpoint general
+    [https://api.github.com/users/](https://api.github.com/users/)<username>/events
 
-Estas son algunas restricciones para guiar la implementación:
+    # Ejemplo
+    [https://api.github.com/users/kamranahmedse/events](https://api.github.com/users/kamranahmedse/events)
+    ```
 
-* Puedes usar cualquier lenguaje de programación para construir este proyecto.
-* Usa argumentos posicionales en la línea de comandos para aceptar las entradas del usuario.
-* Usa un archivo JSON llamado `tasks.json` (o similar) para almacenar las tareas en el directorio actual.
-* El archivo JSON debe crearse si no existe.
-* Usa el módulo nativo del sistema de archivos de tu lenguaje de programación para interactuar con el archivo JSON.
-* **No uses librerías o frameworks externos** para construir este proyecto.
-* Asegúrate de manejar errores y casos excepcionales de manera adecuada.
+* Mostrar la actividad obtenida en la terminal. El formato de salida debería ser similar a este:
+    ```
+    Output:
+    - Pushed 3 commits to kamranahmedse/developer-roadmap
+    - Opened a new issue in kamranahmedse/developer-roadmap
+    - Starred kamranahmedse/developer-roadmap
+    ...
+    ```
 
-## Ejemplos de Uso
+* Manejar errores de forma adecuada, como nombres de usuario inválidos o fallos en la API.
+* Utilizar un lenguaje de programación de tu elección para construir este proyecto.
+* **No utilizar librerías o frameworks externos** para realizar la consulta a la API de GitHub (se deben usar las capacidades nativas del lenguaje para peticiones HTTP y manejo de JSON).
 
-La lista de comandos y su uso se muestra a continuación (asumiendo que el ejecutable se llama `task-cli`):
-
-```bash
-# Añadir una nueva tarea
-task-cli add "Comprar víveres"
-# Salida esperada: Task added successfully (ID: 1)
-
-# Actualizar una tarea existente (por ID)
-task-cli update 1 "Comprar víveres y preparar la cena"
-# Salida esperada: Task 1 updated successfully
-
-# Eliminar una tarea (por ID)
-task-cli delete 1
-# Salida esperada: Task 1 deleted successfully
-
-# Marcar una tarea como "en progreso" (por ID)
-task-cli mark-in-progress 1
-# Salida esperada: Task 1 marked as in-progress
-
-# Marcar una tarea como "hecha" (por ID)
-task-cli mark-done 1
-# Salida esperada: Task 1 marked as done
-
-# Listar todas las tareas
-task-cli list
-
-# Listar tareas por estado
-task-cli list done
-task-cli list todo
-task-cli list in-progress
-
+* URL = https://roadmap.sh/projects/github-user-activity
