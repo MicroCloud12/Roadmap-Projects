@@ -35,4 +35,4 @@ La aplicación debe ejecutarse desde la línea de comandos, aceptar el nombre de
 
 ## Más Información sobre la API de GitHub
 
-Puedes [aprender más sobre la API de GitHub aquí](https://docs.github.com/en/rest).
+Puedes [aprender más sobre la API de GitHub aquí](https://roadmap.sh/projects/github-user-activity).
