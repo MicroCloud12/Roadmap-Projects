@@ -35,6 +35,4 @@ La aplicación debe ejecutarse desde la línea de comandos, aceptar el nombre de
 * Utilizar un lenguaje de programación de tu elección para construir este proyecto.
 * **No utilizar librerías o frameworks externos** para realizar la consulta a la API de GitHub (se deben usar las capacidades nativas del lenguaje para peticiones HTTP y manejo de JSON).
 
-## Más Información sobre la API de GitHub
-
 * URL = https://roadmap.sh/projects/github-user-activity
