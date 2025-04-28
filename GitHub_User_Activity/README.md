@@ -37,4 +37,4 @@ La aplicación debe ejecutarse desde la línea de comandos, aceptar el nombre de
 
 ## Más Información sobre la API de GitHub
 
-URL = https://roadmap.sh/projects/github-user-activity
+* URL = https://roadmap.sh/projects/github-user-activity
