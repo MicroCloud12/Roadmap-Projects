@@ -40,6 +40,15 @@ def update_task_status(tasks, nuevo_status):
             return True
     return False
 
+def delete_task(tasks, id_a_eliminar):
+    tareas_conservadas = []
+    for task in tasks:
+        if task['id'] == id_a_eliminar:
+            pass
+        else:
+            tareas_conservadas.append(task)
+    return tareas_conservadas
+
 if __name__ == "__main__":
     tasks = load_task()
 
@@ -179,6 +188,26 @@ if __name__ == "__main__":
             print(f"Tarea {id_a_actualizar} marcada como '{nuevo_status}'.")
         else:
             print(f"Error: No se encontró tarea con ID {id_a_actualizar}.")
+    
+    elif command == "Delete":
+        if len(sys.argv) < 3:
+            print("Error: Faltan argumentos para actualizar.")
+            print("Uso: python task_cli.py update <ID> \"<nueva descripción>\"")
+            sys.exit(1) # Salir indicando error
+        try:
+            print()
+            id_a_eliminar = int(sys.argv[2])
+            original_len = len(tasks)
+            tasks = delete_task(id_a_eliminar)
+
+            if len(tasks) < original_len:
+                save_tasks(tasks)
+                print(f"Tarea con ID {id_a_eliminar} eliminada exitosamente.")
+            else:
+                # Si la longitud es la misma, el ID no se encontró
+                print(f"Error: No se encontró tarea con ID {id_a_eliminar}.")
+        except IOError:
+            print()
     else:
         print(f"Error: Comando desconocido '{command}'")
         sys.exit(1)
