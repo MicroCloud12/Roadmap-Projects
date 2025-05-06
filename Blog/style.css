@@ -1,0 +1,63 @@
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+
+.recursive-font {
+    font-family: "Recursive", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "slnt" 0,
+      "CASL" 0,
+      "CRSV" 0.5,
+      "MONO" 0;
+  }
+
+body{
+    background-color:rgba(35, 40, 48, 1);
+}
+
+nav > ul {
+    display: flex;
+    list-style: none;
+}
+nav ul li:not(:first-child) {
+    margin-left: 20px; /* O el valor que prefieras para la separación */
+}
+.nombre-empresa{
+    margin-right: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+    font-family: Poppins;
+}
+
+.logo-empresa{
+    text-align: center;
+    padding-top: 80px; /* Ajusta este valor */
+    padding-bottom: 80px; /* Ajusta este valor */
+}
+
+.logo-empresa img {
+    width: 194.4px;
+    height: 204px;
+    margin-bottom: 0px; 
+}
+
+.logo-empresa h1 {
+    color:rgba(255, 117, 117, 1);
+    font-family: Recursive;
+    font-size: 71px;
+    margin-bottom: 0px; /* Ejemplo de margen para separar h1 del p */
+}
+
+.logo-empresa p {
+    color: rgba(255, 255, 255, 1);
+    font-family: Poppins;
+    font-size: 29px;
+}
