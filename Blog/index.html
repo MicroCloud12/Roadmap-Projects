@@ -4,52 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog de Programacion</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li class="nombre-empresa"><a href="">writings.dev</a></li>
-            <li><a href="">categories</a></li>
+<body class="bg-gray-900">
+    <nav class="p-4 text-[Poppins] text-white flex items-center justify-between">
+        <div class="ltr">
+            <a href="" class="text-3xl ps-85">writings.dev</a>
+        </div>
+        <ul dir="rtl" class="flex flex-row text-2xl items-center gap-8">
+            <li class="ps-75"><a href="">categories</a></li>
             <li><a href="">articles</a></li>
             <li><a href="">about</a></li>
         </ul>
     </nav>
-    <div class="logo-empresa">
-        <img src="img/Logo.png" alt="Logo">
-        <h1>Writings for Developers</h1>
-        <p>Curated collection of articles for busy developers</p>
+    <div class="flex items-center justify-center pb-20">
+        <div>
+            <div class="flex items-center justify-center p-3">
+                <img src="img/Logo.png" alt="Logo">
+            </div>
+            <div class="text-center p-3">
+                <h1 class="text-[#FF7575] font-[recursive] italic text-7xl">Writings for Developers</h1>
+                <p class="text-[#FFFF] text-3xl font-[Poppins] p-3">Curated collection of articles for busy developers</p>
+            </div>
+        </div>
     </div>
-    <div>
-        <ul>
-            <li>JavaScript</li>
-            <li>DevOps</li>
-            <li>Cloud</li>
-            <li>Terraform</li>
-            <li>Architecture</li>
-            <li>Scalability</li>
-            <li>Explainers</li>
+    <div class="text-[#909090] flex flex-row gap-3 justify-center border-t border-gray-100 pt-5">
+        <div class="flex flex-row gap-3">
+            <img src="iconos/Vector (1).svg" alt="" class="w-[30px]">
+            <img src="iconos/Vector.svg" alt="" class="w-[30px]">
+        </div>
+        <ul class="flex flex-row gap-6 text-[27px] pl-9">
+            <li><a href="">JavaScript</a></li>
+            <li><a href="">DevOps</a></li>
+            <li><a href="">Cloud</a></li>
+            <li><a href="">Terraform</a></li>
+            <li><a href="">Architecture</a></li>
+            <li><a href="">Scalability</a></li>
+            <li><a href="">Explainers</a></li>
         </ul>
     </div>
-    <main>
-        <article>
-            <img src="img/1.png" alt="">
-            <h2>Build continuous integration pipelines with GitHub Actions</h2>
-            <p>GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto py-20 px-4">
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+            <img class="aspect-video object-cover w-full" src="img/1.png" alt="">            
+            <div class="p-6">
+                <h2 class="text-lg font-[Poppins] font-bold text-gray-800 mb-2">Build continuous integration pipelines with GitHub Actions</h2>
+                <p class="text-sm font-[Poppins] text-gray-600 leading-relaxed">GitHub actions provide a really powerful way to integrate continuous integration and delivery into your applications.</p>
+            </div>
+            <div class="mt-auto px-6 pb-4 pt-2 border-t border-gray-100">
+                <div class="flex justify-between items-center">
+                    <span class="text-xs text-gray-500">June 24, 2022</span>
+                    <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">DevOps</span>
+                </div>
+            </div>
         </article>
-        <article>
-            <img src="img/2.jpg" alt="">
-            <h2>Python for the Absolute beginners</h2>
-            <p>Python is the most popular programming language out there and it is used for so many different industries.</p>
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+            <img class="aspect-video object-cover w-full" src="img/2.jpg" alt="">
+            <div class="p-6">
+                <h2 class="text-lg font-[Poppins] font-bold text-gray-800 mb-2">Python for the Absolute beginners</h2>
+                <p class="text-sm font-[Poppins] text-gray-600 leading-relaxed">Python is the most popular programming language out there and it is used for so many different industries.</p>
+            </div>
+            <div class="mt-auto px-6 pb-4 pt-2 border-t border-gray-100">
+                 <div class="flex justify-between items-center">
+                    <span class="text-xs text-gray-500">June 24, 2022</span>
+                    <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">DevOps</span>
+                </div>
+            </div>
         </article>
-        <article>
-            <img src="img/3.png" alt="">
-            <h2>Docker from Zero to Hero</h2>
-            <p>Learn what is Docker and  how Docker is used in the whole software development process.</p>
+        <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+            <img class="aspect-video object-cover w-full" src="img/3.png" alt="">
+            <div class="p-6">
+                <h2 class="text-lg font-[Poppins] font-bold text-gray-800 mb-2">Docker from Zero to Hero</h2>
+                <p class="text-sm font-[Poppins] text-gray-600 leading-relaxed">Learn what is Docker and how Docker is used in the whole software development process.</p>
+            </div>
+            <div class="mt-auto px-6 pb-4 pt-2 border-t border-gray-100">
+                 <div class="flex justify-between items-center">
+                    <span class="text-xs text-gray-500">June 24, 2022</span>
+                    <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded-full font-semibold">DevOps</span>
+                </div>
+            </div>
         </article>
     </main>
 </body>
